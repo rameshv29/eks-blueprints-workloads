@@ -30,10 +30,9 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: Prefix
             backend:
-              serviceName: ssl-redirect
-              servicePort: use-annotation
-          - path: /*
-            backend:
-              serviceName: kubecost-cost-analyzer-cost-analyzer
-              servicePort: 9090
+              service:
+                name: kubecost-cost-analyzer-cost-analyzer
+                port: 
+                  number: 9090
